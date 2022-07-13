@@ -4,6 +4,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class City {
@@ -15,6 +16,8 @@ public class City {
     private int population;
 
     private boolean isTouristic;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "city")
+    private List<Person> people;
 
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -34,6 +37,14 @@ public class City {
     public City(int id, String name) {
         this.id = id;
         this.name = name;
+    }
+
+    public List<Person> getPeople() {
+        return people;
+    }
+
+    public void setPeople(List<Person> people) {
+        this.people = people;
     }
 
     public int getPopulation() {

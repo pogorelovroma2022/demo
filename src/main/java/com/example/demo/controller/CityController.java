@@ -24,31 +24,31 @@ public class CityController {
         return "cities";
     }
 
-    @GetMapping("/delete")
+    @GetMapping("/delete-city")
     public String delete(@RequestParam int id) {
         repository.deleteById(id);
         return "redirect:cities";
     }
 
-    @GetMapping("/add")
+    @GetMapping("/add-city")
     public String add() {
-        return "add";
+        return "add-city";
     }
 
-    @PostMapping("/add")
+    @PostMapping("/add-city")
     public String add(@ModelAttribute City city) {
         repository.save(city);
         return "redirect:cities";
     }
 
-    @GetMapping("/update")
+    @GetMapping("/update-city")
     public String update(@RequestParam int id, Model model) {
         City city = repository.findById(id).get();
         model.addAttribute("city", city);
-        return "update";
+        return "update-city";
     }
 
-    @PostMapping("/update")
+    @PostMapping("/update-city")
     public String update(@ModelAttribute City city) {
         repository.save(city);
         return "redirect:cities";

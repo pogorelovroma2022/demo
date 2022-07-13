@@ -7,7 +7,10 @@
 </head>
 <body>
     <div class="container">
-        <a href="add">Добавить новый город</a>
+        <a>Города</a>
+        <a href="people">Люди</a>
+        <hr>
+        <a href="add-city">Добавить новый город</a>
         <br>
         <br>
         <table class="table table-striped">
@@ -27,10 +30,10 @@
                 <td th:text="${city.foundationDate}"></td>
                 <td th:text="${city.touristic}"></td>
                 <td>
-                    <a th:href="@{update(id=${city.id})}">Редактировать</a>
+                    <a th:href="@{update-city(id=${city.id})}">Редактировать</a>
                 </td>
                 <td>
-                    <a class="text-danger" th:href="@{delete(id=${city.id})}">Удалить</a>
+                    <a class="text-danger" th:href="@{delete-city(id=${city.id})}">Удалить</a>
                 </td>
             </tr>
         </table>
